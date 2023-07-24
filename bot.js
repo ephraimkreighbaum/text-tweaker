@@ -1,8 +1,13 @@
 // Require the discord.js library
 const Discord = require('discord.js');
 
-// Create a new client instance
-const client = new Discord.Client();
+// Create a new client instance with intents
+const client = new Discord.Client({ 
+  intents: [
+  Discord.GatewayIntentBits.Guilds,
+  Discord.GatewayIntentBits.GuildMessages
+]
+})
 
 // Define a function that replaces words with a word of your choice
 function changeWord(message) {
@@ -48,4 +53,4 @@ client.on('message', message => {
 });
 
 // Log in to Discord with your bot's token
-client.login('your-bot-token');
+client.login('');

@@ -25,10 +25,14 @@ Paste it in your web browser in a new tab, and add it to the server you'd like i
 First go to https://github.com/EDKTech/Text-Tweaker/releases and download the latest .zip folder and extract it.
 Open the "bot.js" file in your IDE (or just use Notepad).
 
-Go to line 21 in the code. The word in the parenthesis is the word the bot will use. Default is "dumpy".
+Instruction on how many words to change and how many messages it will modify is in the code.
 
-Now go to the very bottom of the code and you'll see a line that says `client.login('your-bot-token');`. Change "your-bot-token" to the token you created earlier.
+Go to line 47 in the code. The word in the parenthesis is the word the bot will use. Default is "dumpy".
 Save the file.
+
+If you would like to add words to the list, simply open the "wordlist.js" file and add words (use quotes and commas).
+
+Now go to the "config.json" file and change the value of from `"BOT_TOKEN": ""` to `"BOT_TOKEN": "YOURTOKEN"`
 
 ## Installing/running the bot
 

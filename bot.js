@@ -1,56 +1,69 @@
-// Require the discord.js library
-const Discord = require('discord.js');
+// First I call for Discord.js (kinda important), than the config with the bot token, then the package list, then the gateway intents.
+const Discord = require("discord.js");
+const config = require("./config.json");
+const packageJSON = require("./package.json");
+const { Client, GatewayIntentBits } = require('discord.js');
 
-// Create a new client instance with intents
-const client = new Discord.Client({ 
+const client = new Client({ 
   intents: [
-  Discord.GatewayIntentBits.Guilds,
-  Discord.GatewayIntentBits.GuildMessages
-]
-})
+    GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
+  ] 
+});
 
-// Define a function that replaces words with a word of your choice
-function changeWord(message) {
+// This looks at the wordlsit file for replacing words
+const wordsToLookOutFor = require("./wordlist.js");
 
-  // Split the message into words, eg "Hello, World!" will be split into ("Hello,","world")
-  let words = message.split(' ');
+// This turns the bot on and logs it to the console
+client.on("ready", () => {
+  console.log("Text Tweaker is now online!");
+});
 
-  // Loop through the words and randomly replace some of them
-  for (let i = 0; i < words.length; i++) {
+let messageCount = 0;
 
-    // Generate a random number between 0 and 1
-    let random = Math.random();
+// Checks created messages 
+client.on("messageCreate", (message) => {
+  messageCount++;
 
-    // If the random number is less than 0.2, replace the word (in my case "dumpy")
-    if (random < 0.2) {
-      words[i] = 'dumpy';
+// Checks if every 7th message posted has at least 3 words
+  if (messageCount % 7 === 0 && message.content.split(" ").length >= 3) {
+
+    // Variables to pick a random number between 1-3 to see how many words to change
+    const wordsToReplace = Math.floor(Math.random() * 3) + 1;
+    const words = message.content.split(" ");
+    
+    const randomIndices = [];
+    while (randomIndices.length < wordsToReplace) {
+      const randomIndex = Math.floor(Math.random() * (words.length - 1)) + 1; // Exclude the first word
+      if (!randomIndices.includes(randomIndex)) {
+        randomIndices.push(randomIndex);
+      }
+    }
+
+    // Your word (this is the word it will put in the place of the original words)
+    randomIndices.forEach((index) => {
+      words[index] = "dumpy";
+    });
+
+    // Notifies the console when the message has been picked
+    const modifiedMessage = words.join(" ");
+    console.log("Message picked!");
+
+    // Check if the modified message contains any word from the word list
+    const hasWordFromList = wordsToLookOutFor.some(word => modifiedMessage.toLowerCase().includes(word.toLowerCase()));
+
+    // If it contains any word from the list, post the modified message and log the output (if it doesn't logs that to the console)
+    if (hasWordFromList) {
+      console.log(`Here is what I outputted: ${modifiedMessage}`);
+      message.channel.send(modifiedMessage);
+      console.log("Message posted!");
+    } else {
+      console.log("Message does not contain any word from the list. Skipping posting.");
     }
   }
-
-  // Join the words back together, eg ("Hello,","world") back to "Hello, World!" (or Hello, [yourWord])
-  return words.join(' ');
-}
-
-// When the bot is ready, log a message to the console
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// When the bot receives a message, check if it is from another user and not a bot
-client.on('message', message => {
-
-  // Ignore messages from bots
-  if (message.author.bot) return;
-
-  // Get the content of the message
-  let content = message.content;
-
-  // Call the change function on the content
-  let changed = changeWord(content);
-  
-  // Send the changed message to the same channel
-  message.channel.send(changed);
-});
-
-// Log in to Discord with your bot's token
-client.login('');
+// Points to the config.json file with your Bot token
+client.login(config.BOT_TOKEN);

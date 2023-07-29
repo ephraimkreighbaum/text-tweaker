@@ -79,11 +79,5 @@ module.exports = [
 'park',
 'zoo',
 'mall',
-'restaurant',
-'fuck',
-'bitch',
-'shit',
-'damn',
-'hell',
-'fucker'
+'restaurant'
 ];

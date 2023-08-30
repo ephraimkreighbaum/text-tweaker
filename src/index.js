@@ -1,7 +1,7 @@
 // First I call for Discord.js (kinda important), than the config with the bot token, then the package list, then the gateway intents.
 const Discord = require("discord.js");
-const config = require("./config.json");
-const packageJSON = require("./package.json");
+const config = require("../config.json");
+const packageJSON = require("../package.json");
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({ 

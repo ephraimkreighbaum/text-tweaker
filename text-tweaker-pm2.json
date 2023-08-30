@@ -1,0 +1,7 @@
+{
+    "apps": [{
+        "name": "SlothTweaker",
+        "cwd": "./",
+        "script": "src/index.js"
+    }]
+}

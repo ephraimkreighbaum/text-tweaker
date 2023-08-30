@@ -1,7 +1,6 @@
 # Text Tweaker Discord bot
 A Discord bot written in node.js that randomly replaces words in random sentences with any word of your choosing!
 
-The code is quite simple, it is mostly an experiment I did to see how accurately Chat-GPT can generate code. I modified about 75% of the code.
 Free for anyone to use and customize.
 
 ## Creating your bot through Discord Developer Portal
@@ -27,8 +26,7 @@ Open the "bot.js" file in your IDE (or just use Notepad).
 
 Go to line 21 in the code. The word in the parenthesis is the word the bot will use. Default is "dumpy".
 
-Now go to the very bottom of the code and you'll see a line that says `client.login('your-bot-token');`. Change "your-bot-token" to the token you created earlier.
-Save the file.
+Now go to the `config.json` file and put your bot token in the field.
 
 ## Installing/running the bot
 
@@ -43,7 +41,11 @@ To install Discord.js, run `npm install discord.js`. You may need to update NPM 
 
 Hold shift and right-click on the folder we extracted earlier. Click "Copy as path". In your CMD window, type `cd path-to-folder` and hit enter.
 
-Now run `node bot.js` and hit enter. That's it!
+Now run `npm run start` and hit enter. That's it!
+OR read below to use PM2!
+
+### New Feature! PM2!
+Now I added an option to run with PM2! After you install PM2 just run `pm2 start text-tweaker-pm2.json`!
 
 
 

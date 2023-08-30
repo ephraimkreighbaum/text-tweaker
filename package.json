@@ -1,12 +1,12 @@
 {
     "name": "text-tweaker",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A Discord bot written in node.js that randomly replaces words in random sentences with any word of your choosing!",
-    "author": "EDK, GPT-3.5",
+    "author": "Ephraim Kreighbaum",
     "license": "MIT",
-    "main": "bot.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node bot.js"
+        "start": "node src/index.js"
     },
     "dependencies": {
         "discord.js": "^14.11.0",

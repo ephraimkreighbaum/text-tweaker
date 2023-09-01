@@ -25,6 +25,9 @@ let messageCount = 0;
 
 // Checks created messages 
 client.on("messageCreate", (message) => {
+  if (message.channel.id !== config.CHANNEL_ID) {
+    return;
+  }
   messageCount++;
 
 // Checks if every 7th message posted has at least 3 words

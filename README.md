@@ -59,4 +59,4 @@ Now I added an option to run with PM2!
 After you install PM2 (installation process varies between OSes) just run `pm2 start text-tweaker-pm2.json`!
 
 
-Join the support Discord server to learn about new features I have planned!
+[Join the support Discord server to learn about new features I have planned!](https://discord.gg/PzzMPTJY)

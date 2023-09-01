@@ -1,6 +1,6 @@
 {
     "apps": [{
-        "name": "SlothTweaker",
+        "name": "Text-Tweaker",
         "cwd": "./",
         "script": "src/index.js"
     }]

@@ -47,7 +47,7 @@ client.on("messageCreate", (message) => {
 
     // Your word (this is the word it will put in the place of the original words)
     randomIndices.forEach((index) => {
-      words[index] = "dumpy";
+      words[index] = config.WORD;
     });
 
     // Notifies the console when the message has been picked

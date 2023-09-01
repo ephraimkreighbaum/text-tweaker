@@ -13,24 +13,23 @@ Now go to "OAuth2" in the sidebar and choose "URL Generator". Select "bot". I'd 
 Read messages/View Channels,
 Send messages,
 Send messages in threads,
-Read message history,
-and Use slash commands.
+Read message history.
 
 Scroll down and copy the url that was generated.
 Paste it in your web browser in a new tab, and add it to the server you'd like it in.
 
 
 ## Customizing the bot
-First go to https://github.com/EDKTech/Text-Tweaker/releases and download the latest .zip folder and extract it.
-Open the "bot.js" file in your IDE (or just use Notepad).
+First go to https://github.com/ephraimkreighbaum/Text-Tweaker/releases and download the latest .zip folder and extract it.
+Open the "config.json" file in your IDE (or just use Notepad).
 
-Go to line 21 in the code. The word in the parenthesis is the word the bot will use. Default is "dumpy".
-
-Now go to the `config.json` file and put your bot token in the field.
+Fill in the Bot Token that you copied earlier.
+Fill in the Channel ID (right-click on the channel you would like the bot to use and click "Copy Channel ID").
+Fill in the word you'd like the bot to use.
 
 ## Installing/running the bot
 
-### Windows (adding more documentation for other OSes later)
+### Windows
 Go to https://nodejs.org and install the LTS version. Restart your computer, and open a CMD window.
 
 Run `node -v` to check your installed version (this will also let you know you installed it correctly, if it says it doesn't recognize node as a command, re-run the installer).
@@ -42,11 +41,22 @@ To install Discord.js, run `npm install discord.js`. You may need to update NPM 
 Hold shift and right-click on the folder we extracted earlier. Click "Copy as path". In your CMD window, type `cd path-to-folder` and hit enter.
 
 Now run `npm run start` and hit enter. That's it!
-OR read below to use PM2!
 
-### New Feature! PM2!
-Now I added an option to run with PM2! After you install PM2 just run `pm2 start text-tweaker-pm2.json`!
+### Linux
+Go to https://github.com/nvm-sh/nvm and follow the installation instructions. 
+When installed, run `nvm install node`. This will install the latest version of node.js.
+
+When installed, clone the Text-Tweaker repo: `git clone https://github.com/ephraimkreighbaum/Text-Tweaker.git`
+Navigate inside the folder: `cd Text-Tweaker`. 
+Edit the config: `nano config.json` and fill in the information [here](https://github.com/ephraimkreighbaum/Text-Tweaker#customizing-the-bot).
+
+Install discord.js: `npm install discord.js`
+You can do `npm run start` to start the bot, but if you close your terminal window the bot will shut down. 
+If you follow the instructions [here](https://github.com/ephraimkreighbaum/Text-Tweaker#running-with-pm2) the bot will run continously. 
+
+### Running with PM2
+Now I added an option to run with PM2! 
+After you install PM2 (installation process varies between OSes) just run `pm2 start text-tweaker-pm2.json`!
 
 
-
-Some features are planned to be added at some point. Hope this bot has some use to you!
+Join the support Discord server to learn about new features I have planned!

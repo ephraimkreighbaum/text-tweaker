@@ -1,5 +1,11 @@
 {
     "BOT_TOKEN": "",
+
     "CHANNEL_ID": "",
-    "WORD": ""
+
+    "WORD": "",
+
+    "FREQUENCY": "5",
+
+    "NUMBER_OF_WORDS": "2"
 }

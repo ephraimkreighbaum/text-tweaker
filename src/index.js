@@ -30,8 +30,8 @@ client.on("messageCreate", (message) => {
   }
   messageCount++;
 
-// Checks if every 7th message posted has at least 3 words
-  if (messageCount % 7 === 0 && message.content.split(" ").length >= 3) {
+// Takes message frequency and number of words required in a message from the config.json file.
+  if (messageCount % config.FREQUENCY === 0 && message.content.split(" ").length >= config.NUMBER_OF_WORDS) {
 
     // Variables to pick a random number between 1-3 to see how many words to change
     const wordsToReplace = Math.floor(Math.random() * 3) + 1;
@@ -39,13 +39,13 @@ client.on("messageCreate", (message) => {
     
     const randomIndices = [];
     while (randomIndices.length < wordsToReplace) {
-      const randomIndex = Math.floor(Math.random() * (words.length - 1)) + 1; // Exclude the first word
+      const randomIndex = Math.floor(Math.random() * (words.length - 1)) + 1; // Excludes the first word from being changed
       if (!randomIndices.includes(randomIndex)) {
         randomIndices.push(randomIndex);
       }
     }
 
-    // Your word (this is the word it will put in the place of the original words)
+    // Your word (this is the word it will put in the place of the original words) taken from the config.json
     randomIndices.forEach((index) => {
       words[index] = config.WORD;
     });

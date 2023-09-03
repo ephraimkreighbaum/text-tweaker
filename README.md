@@ -5,14 +5,21 @@ Free for anyone to use and customize.
 
 ## Creating your bot through Discord Developer Portal
 Go to the Discord Developer Portal (https://discord.com/developers/applications).
-Create an application. Go to "Bot" on the sidebar and copy your token (you may have to click reset to see it). Save it for later and DO NOT SHARE THIS WITH ANYONE.
+
+Create an application. Go to "Bot" on the sidebar and copy your token (you may have to click reset to see it). Save it for later.
+
+DO NOT SHARE THIS WITH ANYONE.
+
 After copying this, scroll down to the Privileged Gateway Intents section and enable the three toggles. Save your changes.
 
 Now go to "OAuth2" in the sidebar and choose "URL Generator". Select "bot". I'd just give it Admin, but the only perms it needs are 
 
 Read messages/View Channels,
+
 Send messages,
+
 Send messages in threads,
+
 Read message history.
 
 Scroll down and copy the url that was generated.
@@ -21,11 +28,18 @@ Paste it in your web browser in a new tab, and add it to the server you'd like i
 
 ## Customizing the bot
 First go to https://github.com/ephraimkreighbaum/Text-Tweaker/releases and download the latest .zip folder and extract it.
+
 Open the "config.json" file in your IDE (or just use Notepad).
 
 Fill in the Bot Token that you copied earlier.
+
 Fill in the Channel ID (right-click on the channel you would like the bot to use and click "Copy Channel ID").
+
 Fill in the word you'd like the bot to use.
+
+Fill in the frequency of messages. This is the number of message the bot will change. E.g, if you set it to "1" it will copy every message. "2" every other message. "3" every 3 messages, and so on.
+
+Fill in the minimum number of words. This is how many words the message needs to have for the bot to change it. If you want it to do it with any message, just do "1".
 
 ## Installing/running the bot
 
@@ -47,15 +61,19 @@ Go to https://github.com/nvm-sh/nvm and follow the installation instructions.
 When installed, run `nvm install node`. This will install the latest version of node.js.
 
 When installed, clone the Text-Tweaker repo: `git clone https://github.com/ephraimkreighbaum/Text-Tweaker.git`
+
 Navigate inside the folder: `cd Text-Tweaker`. 
+
 Edit the config: `nano config.json` and fill in the information [here](https://github.com/ephraimkreighbaum/Text-Tweaker#customizing-the-bot).
 
 Install discord.js: `npm install discord.js`
 You can do `npm run start` to start the bot, but if you close your terminal window the bot will shut down. 
+
 If you follow the instructions [here](https://github.com/ephraimkreighbaum/Text-Tweaker#running-with-pm2) the bot will run continously. 
 
 ### Running with PM2
 Now I added an option to run with PM2! 
+
 After you install PM2 (installation process varies between OSes) just run `pm2 start text-tweaker-pm2.json`!
 
 
